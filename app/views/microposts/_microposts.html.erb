@@ -4,23 +4,18 @@
       <img class="mr-2 rounded" src="<%= gravatar_url(micropost.user, { size: 50 }) %>" alt="">
       
       <div class="media-body">
-        <!--記入情報-->
+        <!--記入情報ここから-->
+        
         <div>
-          <%= link_to micropost.id,micropost %>:<span class="text-muted"><%= micropost.created_at.to_s(:datetime_jp) %></span>
+          <span class="text-muted"><%= micropost.created_at.to_s(:datetime_jp) %></span>
         </div>
         
         <div>
-          <p class="mb-0"><%= simple_format(micropost.content) %></p>
+          <div class="mb-0"><h4><%= link_to simple_format(micropost.title),micropost %></h4></div>
+          
         </div>
         <!--記入情報ここまで-->
         
-        <!--削除ボタン追加-->
-        <div>
-          <% if current_user == micropost.user %>
-            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-        </div>
-        <!--ここまで削除ボタン追加-->
       </div>
       
     </li>

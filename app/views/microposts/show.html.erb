@@ -1,4 +1,16 @@
-<h1>id:<%= @micropost.id %>の投稿編集ページ</h1>
 
-<p><%= @micropost.content %></p>
+<h3>記事詳細：「<%= @micropost.title %>」</h3>
+
+<p>タイトル</p>
+<div class="border"><%= simple_format(@micropost.title) %></div>
+<br>
+
+<p>内容</p>
+<div class="border"><%= simple_format(@micropost.content) %></div>
+
+
+
+<%= link_to '編集する',edit_micropost_path(@micropost), class: 'btn btn-block btn-info mt-5' %>
+
+<%= link_to '一覧に戻る', microposts_path, class: 'btn btn-block btn-secondary'%>
 

@@ -8,15 +8,21 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to 'ユーザ一覧', users_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to '投稿する', root_url, class: 'nav-link' %></li>
+          
+          <!-- ドロップダウン　ナブバー　-->
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザー詳細</a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><%= link_to 'ユーザ詳細', user_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to '記事一覧',microposts_path(@microposts) %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
             </ul>
           </li>
+          <!-- ドロップダウン　ここまで-->
+          
         <% else %>
           <li class="nav-item"><%= link_to 'アカウント作成', signup_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>

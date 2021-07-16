@@ -1,32 +1,31 @@
 <!--ログイン後のトップページ内容(ここから)-->
 <% if logged_in? %>
-  <div class="row">
-    
-   <div class="col-sm-7">
+
+  
       <%= form_with(model: @micropost, local: true) do |f| %>
-        <div class="form-group">
-          <%= f.text_area :content, class: 'form-control', rows: 18 %>
+        
+          <%= f.label :title, 'タイトル（最大255字）' %>
+          <div class='form-group'>
+          <%= f.text_field :title,class: 'form-control' %>
+          </div>
           
+          <%= f.label :content, '内容(最大10000字)' %>
+          <div class='form-group'>
+          <%= f.text_area :content, class: 'form-control', rows: 18 %>
         </div>
-        <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+        <%= f.submit '記事を投稿', class: 'btn btn-success btn-block' %>
       <% end %>
-   </div>
    
   <!--作成ずみmicroposts内容表示-->
-    <div class="col-sm-5">
-      <h2>作成済み一覧</h2>
-      <%= render 'microposts/microposts', microposts: @microposts %>
-    </div>
-
-  </div>
+   
   <!--ログイン前のトップページ内容（ここから）-->
 <% else %>
-
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>読書記録アプリへようこそ！</h1>
+  <div class='container'>
+  <div class="jumbotron text-center">
+      <h1>読書記録アプリへ<br>ようこそ！</h1>
+      <h3>〜 本の内容を自分のものに 〜</h3>
       <%= link_to 'アカウント作成', signup_path, class: 'btn btn-lg btn-primary' %>
-    </div>
+  </div>
   </div>
   
 <% end %>

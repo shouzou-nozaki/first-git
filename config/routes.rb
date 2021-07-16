@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'toppages#index'
   
@@ -7,8 +9,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy' 
   
   get 'signup', to: 'users#new'
-  resources :users, only:[:create,:show,:index] 
-  resources :microposts, only:[:create,:destroy,:show]
+  resources :users, only:[:create,:show,:edit,:update] 
+  resources :microposts
+  
+  resources :relationships, only: [:index,:create, :destroy]
+  
   
 end
 

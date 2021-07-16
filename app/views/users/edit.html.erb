@@ -1,0 +1,11 @@
+<h3>プロフィール修正：</h3>
+<div class="m-5"></div>
+
+    <%= form_with(model: @user, local: true) do |f| %>
+        <div class="form-group">
+        <%= f.text_area :introduce, class: 'form-control', rows: 18 %>
+        </div>
+        <%= f.submit '更新する',class: 'btn btn-block btn-success' %>
+    <% end %>
+
+<%= @count_microposts %>

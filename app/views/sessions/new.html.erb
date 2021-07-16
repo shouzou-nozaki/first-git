@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="col-sm-6 offset-sm-3 ">
 
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
@@ -19,7 +19,8 @@
 
       <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
     <% end %>
-
-    <p>アカウントをお持ちでない方は<%= link_to '新規登録', signup_path %>へ</p>
+    <div class="text-center">
+    <p>アカウントをお持ちでない方は<br><%= link_to 'こちら', signup_path %></p>
+    </div>
   </div>
 </div>

@@ -1,0 +1,17 @@
+<h3>記事編集：「<%= @micropost.title %>」</h3>
+
+<%= form_with(model: @micropost, local: true) do |f| %>
+        <p>タイトル（最大255字）</p>
+        <div class="form-group">
+          <%= f.text_area :title, class: 'form-control', rows: 1%>
+        </div>
+　　　　<p>内容（最大10000字）</p>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 18 %>
+        </div>
+        
+        <%= f.submit '保存する', class: 'btn btn-success btn-block mt-5' %>
+        
+      <% end %>
+
+<%= link_to "削除する", @micropost , method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-block mt-2' %>
